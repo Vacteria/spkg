@@ -1,0 +1,14 @@
+#!/usr/bin/python
+
+import sys
+sys.path.append('/home/miguel/proyectos')
+
+try:
+    import ctypes
+    libc = ctypes.CDLL('libc.so.6')
+    libc.prctl(15, 'spkg', 0, 0)
+except:
+    pass
+
+from spkg import spkg
+sys.exit(spkg.main(sys.argv))
